@@ -1,6 +1,5 @@
 package com.devmatheusmarques.bibliotech_api.service;
 
-import com.devmatheusmarques.bibliotech_api.dto.AuthorEditDTO;
 import com.devmatheusmarques.bibliotech_api.dto.AuthorRequestDTO;
 import com.devmatheusmarques.bibliotech_api.dto.AuthorResponseDTO;
 import com.devmatheusmarques.bibliotech_api.model.Author;
@@ -33,21 +32,21 @@ public class AuthorService {
         }
     }
 
-    public void authorEdit(Long id, AuthorEditDTO authorEditDTO) {
+    public void authorEdit(Long id, AuthorRequestDTO authorRequestDTO) {
         Author existingAuthor = authorRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Autor não encontrado."));
 
-        if (authorEditDTO.getName() != null) {
-            existingAuthor.setName(authorEditDTO.getName());
+        if (authorRequestDTO.getName() != null) {
+            existingAuthor.setName(authorRequestDTO.getName());
         }
-        if (authorEditDTO.getBiography() != null) {
-            existingAuthor.setBiography(authorEditDTO.getBiography());
+        if (authorRequestDTO.getBiography() != null) {
+            existingAuthor.setBiography(authorRequestDTO.getBiography());
         }
-        if (authorEditDTO.getCountry() != null) {
-            existingAuthor.setCountry(authorEditDTO.getCountry());
+        if (authorRequestDTO.getCountry() != null) {
+            existingAuthor.setCountry(authorRequestDTO.getCountry());
         }
-        if (authorEditDTO.getBirthday_date() != null) {
-            existingAuthor.setBirthday_date(authorEditDTO.getBirthday_date());
+        if (authorRequestDTO.getBirthday_date() != null) {
+            existingAuthor.setBirthday_date(authorRequestDTO.getBirthday_date());
         }
 
         existingAuthor.setUpdated_at(LocalDateTime.now());

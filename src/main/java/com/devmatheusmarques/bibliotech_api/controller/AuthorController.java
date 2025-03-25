@@ -1,6 +1,5 @@
 package com.devmatheusmarques.bibliotech_api.controller;
 
-import com.devmatheusmarques.bibliotech_api.dto.AuthorEditDTO;
 import com.devmatheusmarques.bibliotech_api.dto.AuthorRequestDTO;
 import com.devmatheusmarques.bibliotech_api.dto.AuthorResponseDTO;
 import com.devmatheusmarques.bibliotech_api.service.AuthorService;
@@ -28,8 +27,8 @@ public class AuthorController {
 
 
     @PutMapping("/{id}")
-    public ResponseEntity<Void> editAuthor(@PathVariable Long id, @Valid @RequestBody AuthorEditDTO authorEditDTO) {
-        authorService.authorEdit(id, authorEditDTO);
+    public ResponseEntity<Void> editAuthor(@PathVariable Long id, @Valid @RequestBody AuthorRequestDTO authorRequestDTO) {
+        authorService.authorEdit(id, authorRequestDTO);
         return ResponseEntity.noContent().build();
     }
 

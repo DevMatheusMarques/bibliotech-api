@@ -5,6 +5,9 @@ import com.devmatheusmarques.bibliotech_api.util.Status;
 import com.devmatheusmarques.bibliotech_api.util.StatusConverter;
 import com.devmatheusmarques.bibliotech_api.util.UserRole;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,6 +17,8 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity(name = "users")
+@NoArgsConstructor
+@Data
 public class User implements UserDetails {
 
     @Id
@@ -40,61 +45,6 @@ public class User implements UserDetails {
         this.role = role;
         this.status = status;
         this.created_at = created_at;
-    }
-
-    public User() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public UserRole getRole() {
-        return role;
-    }
-
-    public void setRole(UserRole role) {
-        this.role = role;
-    }
-
-    public Status getStatus() {
-        return status;
-    }
-
-    public void setStatus(Status status) {
-        this.status = status;
-    }
-
-    public LocalDateTime getCreated_at() {
-        return created_at;
-    }
-
-    public void setCreated_at(LocalDateTime created_at) {
-        this.created_at = created_at;
-    }
-
-    public LocalDateTime getUpdated_at() {
-        return updated_at;
-    }
-
-    public void setUpdated_at(LocalDateTime updated_at) {
-        this.updated_at = updated_at;
     }
 
     @Override
