@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: bibliotech-api
+  datasource:
+    url: jdbc:mysql://localhost:3306/bibliotech?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        jdbc:
+          time_zone: UTC
+    show-sql: true
+    open-in-view: false
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    template:
+      default-receive-queue: myQueue
+
+server:
+  port: 8081
+
+api:
+  security:
+    token:
+      secret: ${JWT_SECRET:my-secret-key}
+
