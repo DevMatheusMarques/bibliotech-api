@@ -31,6 +31,8 @@ public class User implements UserDetails {
     private Status status;
     @Column(name = "created_at", nullable = false)
     private LocalDateTime created_at;
+    @Column(name = "updated_at")
+    private LocalDateTime updated_at;
 
     public User(String login, String password, UserRole role, Status status , LocalDateTime created_at) {
         this.login = login;
@@ -85,6 +87,14 @@ public class User implements UserDetails {
 
     public void setCreated_at(LocalDateTime created_at) {
         this.created_at = created_at;
+    }
+
+    public LocalDateTime getUpdated_at() {
+        return updated_at;
+    }
+
+    public void setUpdated_at(LocalDateTime updated_at) {
+        this.updated_at = updated_at;
     }
 
     @Override
